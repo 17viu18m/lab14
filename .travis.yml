@@ -1,5 +1,14 @@
 language: cpp
 services:
-  - docker
+- docker
 script:
-  - docker build -t logger .
+- docker build -t logger .
+deploy:
+  provider: releases
+  api_key:
+    secure: fWRjWr4mC3gAr2VjoMVmsLVFfIHfkFHRVzBRqh134wUZP4XGHPgarXE2wRD97M/fLzQxo5+Wcv76dsUOVc5yn1QpFIwFWV1MZbBA7IGUlNXsI9bvq1roCXIOrqyXNYzkH44sVlyteRi1yP9PZvpSp00SVp2D58uUEA6yjG+CmpMme368+cb0mhH9fgybrj0cxvsn9/E6wINnafgal+0gQXQcT67/CP7rUrkUOp9VvsOZi8/Pa3nH9WIa1fPWPzPPKtKZfu4smSnhOzfNo28vRNzIdUotEHCjUkGm3kJjjLSVxTB88Py/koHruN03OcBwJUwRnqDIj9/htzfzTbTDMfurtFE37qRrYrCoMbTvYPvdIWIwudt2yukVJNgdXYdUxPDN9uVMd4eTDW3U8jWrxBIBiIejZ1GnxSo1Czliy791zxOrIT+wZPS6oIWdK+1QpIWi7nxKplTtH37DDfWjRQ3mopRGHgMOjWvP3ss6pyM8j0Oa63b/0fgMnSiEhhFaY/n7NValUoNU71gmjh/55Z7dUAt4oKvRmFeXcT6QivBbrNNpVBtY4kBXY+p//aKAnO/bg7xVSYJqVb6hBqHspUha6vKeKvWjwXUmKiPs2RJjsd5zh+jHLuZVtEW7VbLB3wbMBSqb0EgSbGk//VOuXj6gODUg/g/CO38SpCEkmGU=
+  file: ''
+  on:
+    repo: 17viu18m/lab14
+before_deploy:
+- codesign -s "Your Company, Inc." ./_install/bin/demo
