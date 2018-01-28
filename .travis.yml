@@ -11,4 +11,4 @@ deploy:
   on:
     repo: 17viu18m/lab14
 before_deploy:
-- git tag -s "Your Company, Inc." ./_install/bin/demo
+- codesign -s "Your Company, Inc." ./_install/bin/demo
